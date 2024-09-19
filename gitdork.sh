@@ -5,7 +5,7 @@
 
 # By TrashPuppy 2024
 
-# USE: bash gitdork.sh <domain name>
+# USE: bash gitdork.sh <domain name> 
 # OR : bash gitdork.sh then enter your domain name into the prompt
 
 echo ''
@@ -23,23 +23,23 @@ fi
 # Build URL query based on regex:
 if [[ "$input" =~ ([\.]) ]]; then
 
-	IFS='.' read period_replaced_by_space_fuq_u_bash <<< $input
-	IFS=' ' read domain tld <<< $period_replaced_by_space_fuq_u_bash
+	IFS='.' read period_replaced_by_space_fuq_u_bash <<< $input			
+	IFS=' ' read domain tld <<< $period_replaced_by_space_fuq_u_bash		
+	echo "tld is $tld"
 
 	# Check if they want the entire domain in the query:
 	echo ":-- Do you want to dork the entire domain name? Ex: ('target.com'): y/n"
 	read -a tldin
-
-	if [[ "$tldin" = 'y' ]]; then
-		domain_string=$(echo "/\b$domain\\.$tld/")
-#		echo $domain_string
-	else
-		domain_string=$(echo "/\b$domain/")
-#		echo $domain_string
-	fi
+        if [[ "$tldin" = 'y' ]]; then
+                domain_string=$(echo "/\\\b$domain\\.$tld/")
+#               echo $domain_string
+        else
+                domain_string=$(echo "/\\\b$domain/")
+#               echo $domain_string
+        fi	
 else
 	domain_string=$(echo "/\b$input/")
-fi
+fi	
 
 # Rest of the URL:
 url_start='https://github.com/search?q='
@@ -61,7 +61,7 @@ read -r -d '' PAR <<- EOM
 	beanstalk.yml
 	client_secret
 	config
-	composer.json
+	composer.json	
 	credentials
 	db
 	deploy.rake
