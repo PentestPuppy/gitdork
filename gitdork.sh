@@ -25,7 +25,6 @@ if [[ "$input" =~ ([\.]) ]]; then
 
 	IFS='.' read period_replaced_by_space_fuq_u_bash <<< $input			
 	IFS=' ' read domain tld <<< $period_replaced_by_space_fuq_u_bash		
-	echo "tld is $tld"
 
 	# Check if they want the entire domain in the query:
 	echo ":-- Do you want to dork the entire domain name? Ex: ('target.com'): y/n"
@@ -48,8 +47,12 @@ url_end='&type=code'
 # Query Parameters:
 read -r -d '' PAR <<- EOM
 	.bash_history
+	.dockerignore
 	.exs
+	.gitignore
 	.sls
+	.well-known
+	AKIA
 	FTP
 	PWD
 	SECRET_KEY
@@ -60,13 +63,15 @@ read -r -d '' PAR <<- EOM
 	bashrc password
 	beanstalk.yml
 	client_secret
-	config
 	composer.json	
+	config
 	credentials
 	db
 	deploy.rake
 	dockercgf
+	ghp_
 	git-credentials
+	github_pat
 	github_token
 	htpasswd
 	id_rsa
@@ -86,6 +91,7 @@ read -r -d '' PAR <<- EOM
 	xoxa
 	xoxb
 	xoxp
+	ya29
 EOM
 
 echo ""
